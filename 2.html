@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification Countdown</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .logo {
+      max-width: 80%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #800000;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .status {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .pending {
+      color: #ffffff;
+      background-color: #ff0000;
+      border: 1px solid #cc0000;
+    }
+
+    .complete {
+      color: #ffffff;
+      background-color: #28a745;
+      border: 1px solid #1e7e34;
+    }
+
+    .countdown {
+      font-size: 42px;
+      font-weight: bold;
+      color: #800000;
+      margin-bottom: 20px;
+    }
+
+    .loading {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #800000;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive styles */
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 18px;
+      }
+
+      p, .status {
+        font-size: 14px;
+      }
+
+      .countdown {
+        font-size: 32px;
+      }
+
+      .loading {
+        width: 40px;
+        height: 40px;
+        border-width: 4px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- PNB Logo -->
+    <img src="https://imgs.search.brave.com/cuc-YnW92LMu7Hb26PmetqEf8r8DY2stSDvJbdvbBuQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc2Vla2xvZ28u/Y29tL2xvZ28tcG5n/LzM0LzIvcHVuamFi/LW5hdGlvbmFsLWJh/bmstbG9nby1wbmdf/c2Vla2xvZ28tMzQz/OTgwLnBuZz92PTE5/NTUxMTY2MzU5NDk1/NTgxNDQ" alt="PNB Logo" class="logo">
+
+    <h2>Your Verification</h2>
+
+    <!-- Spinner Animation -->
+    <div class="loading"></div>
+
+    <!-- Status Message -->
+    <div class="status pending" id="status">Verification in Procces..</div>
+
+    <p>Your details are being verified.<br>Please wait for:</p>
+
+    <!-- Countdown Timer -->
+    <div class="countdown" id="timer">03:00</div>
+  </div>
+
+  <script>
+    let countdown = 180; // 180 seconds countdown (3 minutes)
+    const timerElement = document.getElementById('timer');
+    const statusElement = document.getElementById('status');
+
+    const timer = setInterval(() => {
+      countdown--;
+
+      const minutes = Math.floor(countdown / 60);
+      const seconds = countdown % 60;
+
+      // Format the time as MM:SS
+      timerElement.textContent =
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+      if (countdown <= 0) {
+        clearInterval(timer);
+        timerElement.textContent = "00:00";
+
+        // Change the status message and styling
+        statusElement.textContent = "Verification Pending...";
+        statusElement.classList.remove('pending');
+        statusElement.classList.add('complete');
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

